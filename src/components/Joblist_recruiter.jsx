@@ -72,24 +72,26 @@ export const Joblist_recruiter = () => {
                    Your Jobs list 
                 </span>
             </div>}
-    <div className='justify-center flex'>
+    <div className='justify-center flex flex-wrap flex-grow'>
           {
             data?.data?.length === 0 ? 
             <>
-            <div className='justify-center flex-col mt-48'>
+            <div className='justify-centerflex-col mt-48'>
             <span>Your job list was empty </span>
             <p className='text-blue-400 ml-5 mt-3 underline cursor-pointer' onClick={() => window.location.href = '/postjob'}>go to Post jobs</p>
             </div>
-            </> : data?.data?.map((job) => (
+            </> :
+            
+            data?.data?.map((job) => (
               
-              <div key={job.id} className='border w-96 m-4 mt-16  h-auto p-4 rounded-lg shadow-lg transition-shadow cursor-pointer duration-300 hover:shadow-2xl bg-gray-50'>
+              <div key={job.id} className='border  w-96 m-4 mt-16  h-auto p-4 rounded-lg shadow-lg transition-shadow cursor-pointer duration-300 hover:shadow-2xl bg-gray-50 '>
                  <div className='flex  justify-end'>
                  <span className='text-3xl font-semibold text-red-600  truncate absolute'><Trash  onClick={()=> handledeletejob(job.id)}  className='cursor-pointer'/></span>
                
               </div>
               <div className='flex flex-col justify-start'>
                 <span className='text-3xl font-semibold text-gray-800 mb-4 truncate'>{job.attributes.title}</span>
-                <img src={job.attributes.img} alt={job.attributes.name} className='w-20 mb-4 border-gray-200' />
+                <img src={job.attributes.img} alt={job.attributes.name} className='w-10 mb-4 border-gray-200 ' />
               </div>
              
               

@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { SignedIn, SignedOut, SignInButton, UserButton, useUser } from "@clerk/clerk-react";
-import { BusinessCenter, FormatLineSpacingRounded, Save } from '@mui/icons-material';
+import { Business, BusinessCenter, FormatLineSpacingRounded, Save } from '@mui/icons-material';
 import { useDispatch, useSelector } from 'react-redux';
 import { removealljobs } from '../utils/Likedjobslice';
 import { Heart } from 'lucide-react';
@@ -33,7 +33,17 @@ export const Header = () => {
 
       {/* Right Section */}
       <div className='flex items-center justify-end flex-grow space-x-8'>
-        {user?.unsafeMetadata?.role === 'recruiter' && (
+       
+         {user?.unsafeMetadata?.role === 'recruiter' && (
+          <span 
+            className='cursor-pointer font-semibold text-gray-700 flex items-center transition-colors duration-300 hover:text-black'
+            onClick={() => window.location.href = '/postjob'}
+          >
+            <Business className='mr-2 mt-1 text-gray-500' />
+            post job 
+          </span>
+        )}
+         {user?.unsafeMetadata?.role === 'recruiter' && (
           <span 
             className='cursor-pointer font-semibold text-gray-700 flex items-center transition-colors duration-300 hover:text-black'
             onClick={() => window.location.href = '/joblistrecriuter'}

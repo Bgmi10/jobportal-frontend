@@ -187,7 +187,7 @@ const Joblistrecruiterdetail = () => {
       </div> 
       <div className='m-10'>
         <span className='text-lg font-extrabold text-slate-500'>What we are looking for?</span>
-        {data?.data?.attributes?.jobrequirements?.data?.map((i, index) => (
+        {data?.data?.attributes?.jobrequirements?.map((i, index) => (
           <li className='mt-5 font-normal text-md' key={index}>
             {i}
           </li>
