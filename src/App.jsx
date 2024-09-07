@@ -1,4 +1,4 @@
-import React, { Suspense, lazy } from "react"
+import React, { Suspense, lazy, useEffect } from "react"
 import { BrowserRouter as Router , Route , Routes } from "react-router-dom"
 import { Home } from "./components/Home"
 import { Header } from "./components/Header"
@@ -7,6 +7,9 @@ import { BarLoader } from "react-spinners"
 import { Joblist_recruiter } from "./components/Joblist_recruiter"
 import { Notfound } from "./components/Notfound"
 import { Savedjobs } from "./components/Savedjobs"
+import { useDispatch } from "react-redux"
+import { useUser } from "@clerk/clerk-react"
+import { removealljobs } from "./utils/Likedjobslice"
 
 
 const Lazyjobs = lazy(() => import('./components/Jobs'))
@@ -16,7 +19,20 @@ const LazyJobdetail = lazy(() => import('./components/Jobdetail'))
 const Lazymyjob = lazy(() => import('./components/Myjobs'))
 const Lazymyjobdetail = lazy(() => import('./components/Joblistrecruiterdetail'))
 
+
 function App() {
+  
+  const dispatch = useDispatch();
+
+  const {user} = useUser()
+
+  useEffect(() => {
+    if (user) {
+      if(!user){
+      dispatch(removealljobs());
+    }
+    }
+  }, [user]);
   
   return (
     <>

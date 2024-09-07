@@ -3,13 +3,11 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Jobcard } from './Jobcard'
 import { removealljobs } from '../utils/Likedjobslice'
 
+
 export const Savedjobs = () => {
 
     const likedjobs = useSelector(store => store.likedjobs)
-    
-
     const dispatch = useDispatch()
-
     const handledeleteallsavedjobs  = () => {
         dispatch(removealljobs())
     }

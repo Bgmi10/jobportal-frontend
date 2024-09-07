@@ -7,13 +7,6 @@ import { Heart } from 'lucide-react';
 
 export const Header = () => {
   const { user } = useUser();
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    if (!user) {
-      dispatch(removealljobs());
-    }
-  }, [user, dispatch]);
 
   return (
     <div className='flex justify-between items-center p-4 '>
